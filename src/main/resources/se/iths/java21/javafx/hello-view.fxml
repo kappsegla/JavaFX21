@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<SplitPane dividerPositions="0.2" styleClass="root" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.iths.java21.javafx.HelloController">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="609.0" prefWidth="254.0">
+        <VBox layoutX="14.0" layoutY="4.0">
+            <Button onAction="#onHelloButtonClick" rotate="45" text="Hello!" />
+            <Label fx:id="welcomeText" styleClass="welcome-text" text="Placeholder text....." textFill="#15eb21" underline="true" />
+        </VBox>
+    </AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="609.0" prefWidth="522.0">
+        <VBox layoutX="84.0" layoutY="-6.0">
+            <Button onAction="#onHelloButtonClick" text="Hello!" />
+            <Button fx:id="specialButton" onAction="#onHelloButtonClick" text="Hello!" />
+        </VBox>
+    </AnchorPane>
+    <stylesheets>
+        <URL value="@css/stylesheet.css" />
+    </stylesheets>
+</SplitPane>
