@@ -1,9 +1,5 @@
 package se.iths.java21.javafx;
 
-import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.CheckBox;
@@ -12,33 +8,22 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.util.StringConverter;
 
 import java.util.function.UnaryOperator;
 
 public class HelloController {
 
+    Model model;
+
     public TextField textField1;
     public Canvas canvas;
     @FXML
     private Label welcomeText;
-
     @FXML
     private CheckBox checkBox1;
 
     public void initialize() {
-        textField1.setText("Hej");
-        UnaryOperator<TextFormatter.Change> filter = change -> {
-
-            if(change.getText().equals("a"))
-                change.setText("Hej");
-            else
-                change.setText("");
-            return change ;
-        };
-
-        TextFormatter<String> formatter = new TextFormatter<>(TextFormatter.IDENTITY_STRING_CONVERTER,"",filter);
-        textField1.setTextFormatter(formatter);
+        model = new Model();
 
     }
 
