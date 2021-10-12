@@ -9,12 +9,12 @@
     <fx:define>
         <ToggleGroup fx:id="group" />
     </fx:define>
-    <Button mnemonicParsing="false" text="Button" onAction="#onHelloButtonClick" onMouseClicked="#mouseClicked"/>
+    <Button text="_Button" onAction="#onHelloButtonClick" onMouseClicked="#mouseClicked"/>
     <CheckBox fx:id="checkBox1" mnemonicParsing="false" text="CheckBox" onAction="#onCheckBoxChecked"/>
     <Label fx:id="welcomeText" text="Label"/>
+    <TextField fx:id="textField1" onKeyTyped="#keyTyped"/>
     <RadioButton mnemonicParsing="false" text="RadioButton" toggleGroup="$group"/>
     <RadioButton mnemonicParsing="false" text="RadioButton" toggleGroup="$group"/>
-    <TextField/>
     <TextArea prefHeight="200.0" prefWidth="200.0"/>
     <ListView prefHeight="200.0" prefWidth="200.0"/>
     <stylesheets>
