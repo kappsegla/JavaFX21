@@ -9,9 +9,9 @@
     <fx:define>
         <ToggleGroup fx:id="group" />
     </fx:define>
-    <Button mnemonicParsing="false" text="Button" onAction="#onHelloButtonClick"/>
-    <CheckBox mnemonicParsing="false" text="CheckBox"/>
-    <Label text="Label"/>
+    <Button mnemonicParsing="false" text="Button" onAction="#onHelloButtonClick" onMouseClicked="#mouseClicked"/>
+    <CheckBox fx:id="checkBox1" mnemonicParsing="false" text="CheckBox" onAction="#onCheckBoxChecked"/>
+    <Label fx:id="welcomeText" text="Label"/>
     <RadioButton mnemonicParsing="false" text="RadioButton" toggleGroup="$group"/>
     <RadioButton mnemonicParsing="false" text="RadioButton" toggleGroup="$group"/>
     <TextField/>
