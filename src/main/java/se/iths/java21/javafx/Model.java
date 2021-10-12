@@ -1,12 +1,12 @@
 package se.iths.java21.javafx;
 
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Model {
 
     private StringProperty text;
-
 
     public Model() {
         this.text = new SimpleStringProperty();

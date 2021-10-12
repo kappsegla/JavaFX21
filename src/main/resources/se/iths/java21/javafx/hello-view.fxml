@@ -7,7 +7,7 @@
 <?import javafx.scene.shape.*?>
 
 <VBox styleClass="root" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.iths.java21.javafx.HelloController">
-    <Button onAction="#onHelloButtonClick" onMouseClicked="#mouseClicked" text="_Button" />
+    <Button onAction="#onHelloButtonClick" text="_Button" />
     <CheckBox fx:id="checkBox1" mnemonicParsing="false" onAction="#onCheckBoxChecked" text="CheckBox" />
     <Label fx:id="welcomeText" text="Label" />
     <TextField fx:id="textField1" onKeyTyped="#keyTyped" />

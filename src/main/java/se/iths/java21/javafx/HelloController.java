@@ -24,16 +24,19 @@ public class HelloController {
 
     public void initialize() {
         model = new Model();
+        model.textProperty().bindBidirectional(textField1.textProperty());
+        welcomeText.textProperty().bind(model.textProperty());
 
+        textField1.disableProperty().bind(checkBox1.selectedProperty().not());
     }
 
     @FXML
     protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+        model.setText("Button pressed");
     }
 
     public void onCheckBoxChecked() {
-        welcomeText.setText("Checkbox: " + checkBox1.isSelected());
+
     }
 
     public void mouseClicked(MouseEvent mouseEvent) {
