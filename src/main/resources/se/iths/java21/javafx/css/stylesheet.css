@@ -15,6 +15,7 @@ Button {
 }
 
 .root {
+    -fx-padding: 10px;
     //-fx-base: rgba(60, 63, 65, 255); // dark
 }
 
