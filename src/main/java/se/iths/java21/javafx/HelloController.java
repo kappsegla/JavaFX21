@@ -1,6 +1,5 @@
 package se.iths.java21.javafx;
 
-import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -8,11 +7,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-
-import javafx.embed.swing.SwingFXUtils;
-
-import java.util.List;
-import java.util.function.UnaryOperator;
+import javafx.scene.paint.Color;
 
 public class HelloController {
 
@@ -26,6 +21,8 @@ public class HelloController {
     private CheckBox checkBox1;
     @FXML
     private ListView<String> listView1;
+    @FXML
+    private ColorPicker colorPicker;
 
     public HelloController() {
     }
@@ -40,6 +37,9 @@ public class HelloController {
         welcomeText.textProperty().bind(model.textProperty());
 
         textField1.disableProperty().bind(checkBox1.selectedProperty().not());
+        checkBox1.selectedProperty().bindBidirectional(model.inColorProperty());
+        colorPicker.valueProperty().bindBidirectional(model.colorProperty());
+
 
         model.observableList.add("Ett");
         model.observableList.add("Två");
@@ -59,18 +59,23 @@ public class HelloController {
 
     @FXML
     protected void onHelloButtonClick() {
+        model.setColor(Color.BLACK);
+
         model.setText("Button pressed");
     }
 
     private void draw() {
         var gc = canvas.getGraphicsContext2D();
         gc.clearRect(0,0,canvas.getWidth(),canvas.getHeight());
-        gc.strokeLine(0,0,canvas.getWidth(),canvas.getHeight());
+        for( var shape  : model.shapes ) {
+            gc.setFill(shape.getColor());
+            gc.fillOval(shape.getX(),shape.getY(),25,25);
+        }
     }
 
 
     public void onCheckBoxChecked() {
-        //SwingFXUtils.fromFXImage();
+
     }
 
     public void mouseClicked(MouseEvent mouseEvent) {
@@ -90,9 +95,7 @@ public class HelloController {
     }
 
     public void canvasClicked(MouseEvent event) {
-        model.observableList.add(Double.toString(event.getX()));
-        System.out.println("Clicked on canvas");
-        var context = canvas.getGraphicsContext2D();
-        context.fillOval(event.getX(),event.getY(),25,25);
+        model.shapes.add(new Shape(model.getColor(),event.getX(),event.getY()));
+        draw();
     }
 }

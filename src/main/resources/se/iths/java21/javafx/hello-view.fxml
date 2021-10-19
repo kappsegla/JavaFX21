@@ -12,13 +12,7 @@
     <CheckBox fx:id="checkBox1" mnemonicParsing="false" onAction="#onCheckBoxChecked" text="CheckBox"/>
     <Label fx:id="welcomeText" text="Label"/>
     <TextField fx:id="textField1" onKeyTyped="#keyTyped"/>
-    <RadioButton mnemonicParsing="false" text="RadioButton"/>
-    <RadioButton mnemonicParsing="false" text="RadioButton">
-        <toggleGroup>
-            <ToggleGroup fx:id="group"/>
-        </toggleGroup>
-    </RadioButton>
-    <TextArea prefHeight="60.0" prefWidth="200.0"/>
+    <ColorPicker fx:id="colorPicker"/>
     <ListView fx:id="listView1"/>
     <StackPane prefWidth="400" prefHeight="800">
         <ResizableCanvas fx:id="canvas" onMouseClicked="#canvasClicked"/>
