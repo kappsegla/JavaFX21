@@ -18,4 +18,20 @@ public class ResizableCanvas extends Canvas {
     public double minWidth(double v) {
         return 1;
     }
+
+    @Override
+    public double maxHeight(double v) {
+        return Double.MAX_VALUE;
+    }
+
+    @Override
+    public double maxWidth(double v) {
+        return Double.MAX_VALUE;
+    }
+
+    @Override
+    public void resize(double width, double height) {
+        this.setWidth(width);
+        this.setHeight(height);
+    }
 }

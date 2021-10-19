@@ -1,5 +1,6 @@
 package se.iths.java21.javafx;
 
+import javafx.beans.Observable;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -10,6 +11,7 @@ import javafx.scene.input.MouseEvent;
 
 import javafx.embed.swing.SwingFXUtils;
 
+import java.util.List;
 import java.util.function.UnaryOperator;
 
 public class HelloController {
@@ -51,14 +53,21 @@ public class HelloController {
                        model.setText(new_val);
                     }
                 });
-        canvas.widthProperty().addListener(observable -> System.out.println("Canvas changed width to: " + canvas.getWidth()));
-
+        canvas.widthProperty().addListener(observable -> draw());
+        canvas.heightProperty().addListener(observable -> draw());
     }
 
     @FXML
     protected void onHelloButtonClick() {
         model.setText("Button pressed");
     }
+
+    private void draw() {
+        var gc = canvas.getGraphicsContext2D();
+        gc.clearRect(0,0,canvas.getWidth(),canvas.getHeight());
+        gc.strokeLine(0,0,canvas.getWidth(),canvas.getHeight());
+    }
+
 
     public void onCheckBoxChecked() {
         //SwingFXUtils.fromFXImage();
@@ -81,6 +90,7 @@ public class HelloController {
     }
 
     public void canvasClicked(MouseEvent event) {
+        model.observableList.add(Double.toString(event.getX()));
         System.out.println("Clicked on canvas");
         var context = canvas.getGraphicsContext2D();
         context.fillOval(event.getX(),event.getY(),25,25);

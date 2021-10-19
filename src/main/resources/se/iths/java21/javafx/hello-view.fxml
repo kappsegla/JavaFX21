@@ -19,9 +19,9 @@
         </toggleGroup>
     </RadioButton>
     <TextArea prefHeight="60.0" prefWidth="200.0"/>
-    <ListView fx:id="listView1" prefHeight="162.0" prefWidth="200.0"/>
-    <StackPane prefWidth="400" prefHeight="400">
-        <ResizableCanvas fx:id="canvas" onMouseClicked="#canvasClicked" height="${canvas.parent.height}" width="${canvas.parent.width}"/>
+    <ListView fx:id="listView1"/>
+    <StackPane prefWidth="400" prefHeight="800">
+        <ResizableCanvas fx:id="canvas" onMouseClicked="#canvasClicked"/>
     </StackPane>
     <stylesheets>
         <URL value="@css/stylesheet.css"/>
