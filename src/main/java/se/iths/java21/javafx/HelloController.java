@@ -1,11 +1,10 @@
 package se.iths.java21.javafx;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
+import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
@@ -21,6 +20,15 @@ public class HelloController {
     private Label welcomeText;
     @FXML
     private CheckBox checkBox1;
+    @FXML
+    private ListView<String> listView1;
+
+    public HelloController() {
+    }
+
+    public HelloController(Model model) {
+        this.model = model;
+    }
 
     public void initialize() {
         model = new Model();
@@ -28,6 +36,19 @@ public class HelloController {
         welcomeText.textProperty().bind(model.textProperty());
 
         textField1.disableProperty().bind(checkBox1.selectedProperty().not());
+
+        model.observableList.add("Ett");
+        model.observableList.add("Två");
+        model.observableList.add("Tre");
+
+        listView1.setItems( model.observableList);
+        listView1.getSelectionModel().selectedItemProperty()
+                .addListener(new ChangeListener<String>() {
+                    public void changed(ObservableValue<? extends String> ov,
+                                        String old_val, String new_val) {
+                       model.setText(new_val);
+                    }
+                });
     }
 
     @FXML
@@ -40,6 +61,9 @@ public class HelloController {
     }
 
     public void mouseClicked(MouseEvent mouseEvent) {
+        model.setText("");
+
+
         System.out.println(mouseEvent.getX() + ":" + mouseEvent.getY());
         System.out.println(mouseEvent.getSceneX() + ":" + mouseEvent.getSceneY());
         System.out.println(mouseEvent.getScreenX() + ":" + mouseEvent.getScreenY());

@@ -1,12 +1,16 @@
 package se.iths.java21.javafx;
 
-import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class Model {
 
-    private StringProperty text;
+    private final StringProperty text;
+
+    ObservableList<String> observableList =
+            FXCollections.observableArrayList();
 
     public Model() {
         this.text = new SimpleStringProperty();

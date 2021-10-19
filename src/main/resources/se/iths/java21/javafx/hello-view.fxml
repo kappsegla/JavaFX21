@@ -4,7 +4,6 @@
 <?import javafx.scene.canvas.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
 
 <VBox styleClass="root" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.iths.java21.javafx.HelloController">
     <Button onAction="#onHelloButtonClick" text="_Button" />
@@ -16,10 +15,9 @@
       <toggleGroup>
          <ToggleGroup fx:id="group" />
       </toggleGroup></RadioButton>
-    <TextArea prefHeight="200.0" prefWidth="200.0" />
-    <ListView prefHeight="0.0" prefWidth="200.0" />
-    <Circle fill="DODGERBLUE" radius="22.0" stroke="BLACK" strokeType="INSIDE" />
-    <Canvas fx:id="canvas" height="200" width="200" onMouseClicked="#canvasClicked"/>
+    <TextArea prefHeight="60.0" prefWidth="200.0" />
+    <ListView fx:id="listView1" prefHeight="162.0" prefWidth="200.0" />
+    <Canvas fx:id="canvas" height="200" onMouseClicked="#canvasClicked" width="200" />
     <stylesheets>
         <URL value="@css/stylesheet.css" />
     </stylesheets>
