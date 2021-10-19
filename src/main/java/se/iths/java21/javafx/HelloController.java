@@ -8,6 +8,8 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 
+import javafx.embed.swing.SwingFXUtils;
+
 import java.util.function.UnaryOperator;
 
 public class HelloController {
@@ -49,6 +51,8 @@ public class HelloController {
                        model.setText(new_val);
                     }
                 });
+        canvas.widthProperty().addListener(observable -> System.out.println("Canvas changed width to: " + canvas.getWidth()));
+
     }
 
     @FXML
@@ -57,7 +61,7 @@ public class HelloController {
     }
 
     public void onCheckBoxChecked() {
-
+        //SwingFXUtils.fromFXImage();
     }
 
     public void mouseClicked(MouseEvent mouseEvent) {
