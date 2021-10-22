@@ -7,11 +7,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import se.iths.java21.javafx.products.entities.Brand;
 import se.iths.java21.javafx.products.entities.Category;
 import se.iths.java21.javafx.products.entities.Product;
 import se.iths.java21.javafx.products.services.ProductService;
 
+import java.io.File;
 import java.math.BigDecimal;
 import java.util.UUID;
 
@@ -25,6 +28,8 @@ public class ProductsController {
     public TextField brandName;
     public ListView<Product> listView;
     public Button addButton;
+
+    Stage mainStage;
 
     Model model;
 
@@ -52,7 +57,7 @@ public class ProductsController {
     }
 
     public void onDelete(ActionEvent actionEvent) {
-            model.deleteSelectedProduct();
+        model.deleteSelectedProduct();
     }
 
     public void onAdd(ActionEvent actionEvent) {

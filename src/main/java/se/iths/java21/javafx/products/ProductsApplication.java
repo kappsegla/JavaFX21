@@ -16,6 +16,7 @@ public class ProductsApplication extends Application {
         //scene.getStylesheets().add(getClass().getResource("stylesheet.css").toExternalForm());
         stage.setTitle("Hello!");
         stage.setScene(scene);
+        fxmlLoader.<ProductsController>getController().mainStage = stage;
         stage.show();
     }
 

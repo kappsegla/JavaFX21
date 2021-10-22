@@ -21,9 +21,9 @@ public class Model {
     List<Shape> shapes = new ArrayList<>();
 
     public Model() {
-        this.text = new SimpleStringProperty();
+        this.text = new SimpleStringProperty("");
         this.inColor = new SimpleBooleanProperty();
-        this.color = new SimpleObjectProperty<>();
+        this.color = new SimpleObjectProperty<>(Color.BLACK);
     }
 
     public Color getColor() {

@@ -23,7 +23,7 @@
                 <TextField fx:id="brandName"/>
                 <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                 <HBox prefHeight="100.0" prefWidth="200.0">
-                    <Button mnemonicParsing="false" text="New">
+                    <Button mnemonicParsing="false" text="Save" onAction="#onSave">
                         <HBox.margin>
                             <Insets left="10.0" right="10.0" />
                         </HBox.margin>
