@@ -1,5 +1,6 @@
 package se.iths.java21.javafx.products.services;
 
+import javafx.collections.ObservableList;
 import se.iths.java21.javafx.products.entities.Product;
 
 import java.util.Collection;
@@ -16,7 +17,7 @@ public interface Products {
 
     void deleteProduct(UUID uuid);
 
-    List<Product> getProducts();
+    ObservableList<Product> getProducts();
 
     Optional<Product> getProduct(UUID uuid);
 }

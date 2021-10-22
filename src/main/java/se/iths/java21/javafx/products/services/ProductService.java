@@ -1,12 +1,14 @@
 package se.iths.java21.javafx.products.services;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import se.iths.java21.javafx.products.entities.Category;
 import se.iths.java21.javafx.products.entities.Product;
 
 import java.util.*;
 
 public class ProductService implements Products {
-    private final List<Product> products = new ArrayList<>();
+    private final ObservableList<Product> products = FXCollections.observableArrayList();
     private final Map<Product, Integer> inventory = new HashMap<>();
 
     public ProductService() {
@@ -58,9 +60,10 @@ public class ProductService implements Products {
     }
 
     @Override
-    public List<Product> getProducts() {
+    public ObservableList<Product> getProducts() {
+        return products;
         //return List.copyOf(products);   //Returns unmodifiable List as a copy.
-        return Collections.unmodifiableList(products);  //Returns unmodifiable List with read through
+        //return Collections.unmodifiableList(products);  //Returns unmodifiable List with read through
     }
 
 

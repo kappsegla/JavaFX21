@@ -12,15 +12,15 @@
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" SplitPane.resizableWithParent="false">
             <VBox layoutX="98.0" layoutY="99.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                 <Label text="Label" />
-                <TextField />
+                <TextField fx:id="uuid" />
                 <Label text="Label" />
                 <TextField fx:id="productName" />
                 <Label text="Label" />
-                <Spinner />
+                <Spinner fx:id="priceSpinner" min="0" initialValue="1" amountToStepBy="1" max="10000" editable="true"/>
                 <Label text="Label" />
-                <TextField />
+                <TextField fx:id="categoryName"/>
                 <Label text="Label" />
-                <TextField />
+                <TextField fx:id="brandName"/>
                 <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                 <HBox prefHeight="100.0" prefWidth="200.0">
                     <Button mnemonicParsing="false" text="New">
@@ -28,12 +28,12 @@
                             <Insets left="10.0" right="10.0" />
                         </HBox.margin>
                     </Button>
-                    <Button mnemonicParsing="false" text="Save">
+                    <Button mnemonicParsing="false" text="Add" onAction="#onAdd">
                         <HBox.margin>
                             <Insets right="10.0" />
                         </HBox.margin>
                     </Button>
-                    <Button mnemonicParsing="false" text="Delete">
+                    <Button mnemonicParsing="false" text="Delete" onAction="#onDelete">
                         <HBox.margin>
                             <Insets right="10.0" />
                         </HBox.margin>
