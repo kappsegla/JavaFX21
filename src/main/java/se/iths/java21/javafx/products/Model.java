@@ -40,6 +40,7 @@ public class Model {
     }
 
     public void addNewProduct() {
+        //Validate?
         var product = new Product(UUID.randomUUID(),
                 productName.getValue(),
                 BigDecimal.valueOf(price.getValue().doubleValue()),

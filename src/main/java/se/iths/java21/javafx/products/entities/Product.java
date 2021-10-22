@@ -16,6 +16,7 @@ public class Product {
     private final Brand brand;
 
     public Product(UUID id, String name, BigDecimal price, Category categories, Brand brand) {
+        //Validate??
         this.id = id;
         this.name = name;
         this.price = price;

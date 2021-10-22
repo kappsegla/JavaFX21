@@ -40,7 +40,7 @@ public class ProductsController {
         categoryName.textProperty().bindBidirectional(model.categoryName);
         brandName.textProperty().bindBidirectional(model.brandName);
         model.price.bindBidirectional(priceSpinner.getValueFactory().valueProperty());
-        //addButton.disableProperty().bind(model.validProduct.not());
+
         addButton.disableProperty().bind(model.validProduct);
     }
 
