@@ -10,29 +10,21 @@ import java.util.UUID;
 
 public class Product {
     private final UUID id;
-    private final StringProperty name;
+    private final String name;
     private final BigDecimal price;
     private final Category category;
     private final Brand brand;
 
     public Product(UUID id, String name, BigDecimal price, Category categories, Brand brand) {
         this.id = id;
-        this.name = new SimpleStringProperty(name);
+        this.name = name;
         this.price = price;
         this.category = categories;
         this.brand = brand;
     }
 
     public String getName() {
-        return name.get();
-    }
-
-    public StringProperty nameProperty() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name.set(name);
     }
 
     public UUID getId() {
