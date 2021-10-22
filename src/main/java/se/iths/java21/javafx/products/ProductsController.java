@@ -1,12 +1,11 @@
 package se.iths.java21.javafx.products;
 
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
 import se.iths.java21.javafx.products.entities.Brand;
 import se.iths.java21.javafx.products.entities.Category;
 import se.iths.java21.javafx.products.entities.Product;
+import se.iths.java21.javafx.products.services.ProductService;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -17,16 +16,17 @@ public class ProductsController {
     @FXML
     ListView<Product> listView;
 
-    @FXML
-    TextField productName;
-
     Model model;
 
+    public void initialize() {
+        model = new Model(new ProductService());
+        model.products.addProduct(new Product(UUID.randomUUID(), "Name1", BigDecimal.ONE, Category.of("Category 1"), Brand.of("Brand")));
+        model.products.addProduct(new Product(UUID.randomUUID(), "Name2", BigDecimal.ONE, Category.of("Category 1"), Brand.of("Brand")));
+        model.products.addProduct(new Product(UUID.randomUUID(), "Name3", BigDecimal.ONE, Category.of("Category 1"), Brand.of("Brand")));
+        listView.setItems(model.observableList);
+    }
+
     public ProductsController() {
-        model = new Model();
-//        model.productService.addProduct(new Product(UUID.randomUUID(),"Name1", BigDecimal.ONE,Category.of("Category 1"), Brand.of("Brand")));
-//        model.productService.addProduct(new Product(UUID.randomUUID(),"Name2", BigDecimal.ONE,Category.of("Category 1"), Brand.of("Brand")));
-//        model.productService.addProduct(new Product(UUID.randomUUID(),"Name3", BigDecimal.ONE,Category.of("Category 1"), Brand.of("Brand")));
     }
 
     public ProductsController(Model model) {
@@ -40,7 +40,7 @@ public class ProductsController {
 //        }
 //    }
 
-    public void initialize() {
+//    public void initialize() {
 //        listView.setItems(model.observableList);
 //        model.product.bind(listView.getSelectionModel().selectedItemProperty());
 //        model.product.addListener(this::changed);

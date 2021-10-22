@@ -5,7 +5,7 @@ import se.iths.java21.javafx.products.entities.Product;
 
 import java.util.*;
 
-public class ProductService {
+public class ProductService implements Products {
     private final List<Product> products = new ArrayList<>();
     private final Map<Product, Integer> inventory = new HashMap<>();
 
@@ -30,20 +30,26 @@ public class ProductService {
     }
 
 
+    @Override
     public void addProducts(Collection<Product> products) {
         this.products.addAll(products);
     }
 
+    @Override
     public void addProduct(Product product) {
+        //Validating
+        //Make copy if product isn't immutable
         if (!products.contains(product)) {
             products.add(product);
         }
     }
 
+    @Override
     public void deleteProduct(Product product) {
         products.remove(product);
     }
 
+    @Override
     public void deleteProduct(UUID uuid) {
         products.stream()
                 .filter(product -> product.getId().equals(uuid))
@@ -51,12 +57,14 @@ public class ProductService {
                 .ifPresent(products::remove);
     }
 
+    @Override
     public List<Product> getProducts() {
         //return List.copyOf(products);   //Returns unmodifiable List as a copy.
         return Collections.unmodifiableList(products);  //Returns unmodifiable List with read through
     }
 
 
+    @Override
     public Optional<Product> getProduct(UUID uuid) {
         return products.stream()
                 .filter(product -> product.getId().equals(uuid))
