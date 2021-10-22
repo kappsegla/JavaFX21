@@ -1,5 +1,7 @@
 package se.iths.java21.javafx.products;
 
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,10 +20,15 @@ public class Model {
     ObservableList<Product> observableList;
     ObjectProperty<Product> selectedProduct = new SimpleObjectProperty<>();
     StringProperty productName = new SimpleStringProperty();
-    ObjectProperty<Integer> price = new SimpleObjectProperty<>();
+    ObjectProperty<Integer> price = new SimpleObjectProperty<>(1);
     StringProperty categoryName = new SimpleStringProperty();
     StringProperty brandName = new SimpleStringProperty();
-    BooleanProperty validProductInfo = new SimpleBooleanProperty();
+
+    BooleanBinding validProduct = Bindings.isEmpty(this.productName)
+            .or(Bindings.isEmpty(this.categoryName))
+            .or(Bindings.isEmpty(this.brandName))
+            .or(Bindings.createBooleanBinding(() -> this.price.getValue() < 5, this.price));
+
 
     public Model(Products products) {
         this.products = products;
@@ -38,6 +45,6 @@ public class Model {
                 BigDecimal.valueOf(price.getValue().doubleValue()),
                 Category.of(categoryName.getValue()),
                 Brand.of(brandName.getValue()));
-        products.addProduct(  product );
+        products.addProduct(product);
     }
 }

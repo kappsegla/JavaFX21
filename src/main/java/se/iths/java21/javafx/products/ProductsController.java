@@ -1,7 +1,9 @@
 package se.iths.java21.javafx.products;
 
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
@@ -22,6 +24,7 @@ public class ProductsController {
     public TextField categoryName;
     public TextField brandName;
     public ListView<Product> listView;
+    public Button addButton;
 
     Model model;
 
@@ -37,6 +40,8 @@ public class ProductsController {
         categoryName.textProperty().bindBidirectional(model.categoryName);
         brandName.textProperty().bindBidirectional(model.brandName);
         model.price.bindBidirectional(priceSpinner.getValueFactory().valueProperty());
+        //addButton.disableProperty().bind(model.validProduct.not());
+        addButton.disableProperty().bind(model.validProduct);
     }
 
     public ProductsController() {
