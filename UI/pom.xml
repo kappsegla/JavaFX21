@@ -59,6 +59,21 @@
                     <mainClass>se.iths.java21.javafx/se.iths.java21.javafx.HelloApplication</mainClass>
                 </configuration>
             </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.openjfx</groupId>-->
+<!--                <artifactId>javafx-maven-plugin</artifactId>-->
+<!--                <version>0.0.8</version>-->
+<!--                <configuration>-->
+<!--                    <stripDebug>true</stripDebug>-->
+<!--                    <compress>2</compress>-->
+<!--                    <noHeaderFiles>true</noHeaderFiles>-->
+<!--                    <noManPages>true</noManPages>-->
+<!--                    <launcher>hellofx</launcher>-->
+<!--                    <jlinkImageName>hello</jlinkImageName>-->
+<!--                    <jlinkZipName>hellozip</jlinkZipName>-->
+<!--                    <mainClass>se.iths.java21.javafx/se.iths.java21.javafx.HelloApplication</mainClass>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
         </plugins>
     </build>
 </project>
