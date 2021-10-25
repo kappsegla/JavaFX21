@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import se.iths.java21.javafx.ResizableCanvas?>
+<VBox styleClass="root" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="se.iths.java21.javafx.HelloController">
+    <Button onAction="#onHelloButtonClick" text="_Button"/>
+    <CheckBox fx:id="checkBox1" mnemonicParsing="false" onAction="#onCheckBoxChecked" text="CheckBox"/>
+    <Label fx:id="welcomeText" text="Label"/>
+    <TextField fx:id="textField1" onKeyTyped="#keyTyped"/>
+    <ColorPicker fx:id="colorPicker"/>
+    <ListView fx:id="listView1"/>
+    <StackPane prefWidth="400" prefHeight="800">
+        <ResizableCanvas fx:id="canvas" onMouseClicked="#canvasClicked"/>
+    </StackPane>
+    <stylesheets>
+        <URL value="@css/stylesheet.css"/>
+    </stylesheets>
+</VBox>
