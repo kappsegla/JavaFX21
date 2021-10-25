@@ -18,4 +18,11 @@ public final class Rectangle extends Shape {
         graphicsContext.setFill(this.getColor());
         graphicsContext.fillRect(getX() - halfSize, getY() - halfSize, size, size);
     }
+
+    @Override
+    public boolean isInside(double x, double y) {
+
+
+        return false;
+    }
 }

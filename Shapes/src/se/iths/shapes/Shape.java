@@ -28,6 +28,8 @@ public abstract sealed class Shape permits Circle, Rectangle, se.iths.shapes.sha
 
     public abstract void draw(GraphicsContext graphicsContext);
 
+    public abstract boolean isInside(double x, double y);
+
 
     public Color getColor() {
         return color;

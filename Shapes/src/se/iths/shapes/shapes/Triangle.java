@@ -32,4 +32,9 @@ public final class Triangle extends Shape {
         graphicsContext.setFill(getColor());
         graphicsContext.fillPolygon(xcoords,ycoords,3);
     }
+
+    @Override
+    public boolean isInside(double x, double y) {
+        return false;
+    }
 }

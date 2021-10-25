@@ -18,4 +18,14 @@ public final class Circle extends Shape {
         graphicsContext.setFill(this.getColor());
         graphicsContext.fillOval(getX()-radius, getY()-radius,2*radius,2*radius);
     }
+
+    @Override
+    public boolean isInside(double x, double y) {
+        double dx = x - getX();
+        double dy = y - getY();
+
+        double distanceFromCircleCenterSquared = dx * dx + dy * dy;
+
+        return distanceFromCircleCenterSquared < radius*radius;
+    }
 }
