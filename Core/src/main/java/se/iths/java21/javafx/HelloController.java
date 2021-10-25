@@ -8,6 +8,8 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import se.iths.shapes.Shape;
+import se.iths.shapes.Shapes;
 
 public class HelloController {
 
@@ -45,12 +47,12 @@ public class HelloController {
         model.observableList.add("Två");
         model.observableList.add("Tre");
 
-        listView1.setItems( model.observableList);
+        listView1.setItems(model.observableList);
         listView1.getSelectionModel().selectedItemProperty()
                 .addListener(new ChangeListener<String>() {
                     public void changed(ObservableValue<? extends String> ov,
                                         String old_val, String new_val) {
-                       model.setText(new_val);
+                        model.setText(new_val);
                     }
                 });
         canvas.widthProperty().addListener(observable -> draw());
@@ -66,10 +68,9 @@ public class HelloController {
 
     private void draw() {
         var gc = canvas.getGraphicsContext2D();
-        gc.clearRect(0,0,canvas.getWidth(),canvas.getHeight());
-        for( var shape  : model.shapes ) {
-            gc.setFill(shape.getColor());
-            gc.fillOval(shape.getX(),shape.getY(),25,25);
+        gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+        for (var shape : model.shapes) {
+            shape.draw(gc);
         }
     }
 
@@ -95,7 +96,7 @@ public class HelloController {
     }
 
     public void canvasClicked(MouseEvent event) {
-        model.shapes.add(new Shape(model.getColor(),event.getX(),event.getY()));
+        model.shapes.add(Shapes.circleOf(event.getX(), event.getY(), 10.0, model.getColor()));
         draw();
     }
 }

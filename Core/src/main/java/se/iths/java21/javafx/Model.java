@@ -4,6 +4,7 @@ import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.paint.Color;
+import se.iths.shapes.Shape;
 
 import java.util.ArrayList;
 import java.util.List;
