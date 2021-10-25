@@ -21,6 +21,11 @@ public class Model {
 
     List<Shape> shapes = new ArrayList<>();
 
+    double[] xcoords = new double[3];
+    double[] ycoords = new double[3];
+    int clickCounter = 0;
+
+
     public Model() {
         this.text = new SimpleStringProperty("");
         this.inColor = new SimpleBooleanProperty();

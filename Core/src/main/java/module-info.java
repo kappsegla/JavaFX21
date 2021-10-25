@@ -7,6 +7,4 @@ module se.iths.java21.javafx {
 
     opens se.iths.java21.javafx to javafx.fxml;
     exports se.iths.java21.javafx;
-    exports se.iths.java21.javafx.products;
-    opens se.iths.java21.javafx.products to javafx.fxml;
 }

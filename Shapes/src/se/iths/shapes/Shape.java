@@ -3,6 +3,7 @@ package se.iths.shapes;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import se.iths.shapes.shapes.Circle;
+import se.iths.shapes.shapes.Rectangle;
 
 //*Göra Shape abstract superklass för att representera en shape
 //*Skapa subklass Circle
@@ -12,9 +13,9 @@ import se.iths.shapes.shapes.Circle;
 //*Gör specifika implementationer i subklasser (Polymorfism)
 //*Hindra användare att skapa Circle objekt utan att gå via våra factory metoder på klassen Shapes
 
-//Hindra arv av Shape?  sealed types
+//*Hindra arv av Shape?  sealed types
 
-public abstract sealed class Shape permits Circle {
+public abstract sealed class Shape permits Circle, Rectangle, se.iths.shapes.shapes.Triangle {
     private Color color;
     private double x;
     private double y;

@@ -96,7 +96,17 @@ public class HelloController {
     }
 
     public void canvasClicked(MouseEvent event) {
-        model.shapes.add(Shapes.circleOf(event.getX(), event.getY(), 10.0, model.getColor()));
+        if( event.getButton().name().equals("PRIMARY"))
+            model.shapes.add(Shapes.rectangleOf(event.getX(), event.getY(), 10.0, model.getColor()));
+        else if( event.getButton().name().equals("SECONDARY")) {
+            model.xcoords[model.clickCounter] = event.getX();
+            model.ycoords[model.clickCounter++] = event.getY();
+
+            if( model.clickCounter == 3) {
+                model.shapes.add(Shapes.triangleOf(model.xcoords, model.ycoords, model.getColor()));
+                model.clickCounter = 0;
+            }
+        } //  model.shapes.add(Shapes.circleOf(event.getX(), event.getY(), 10.0, model.getColor()));
         draw();
     }
 }

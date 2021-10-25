@@ -1,0 +1,21 @@
+package se.iths.shapes.shapes;
+
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
+import se.iths.shapes.Shape;
+
+public final class Rectangle extends Shape {
+    private double size;
+
+    public Rectangle(Color color, double x, double y, double size) {
+        super(color, x, y);
+        this.size = size;
+    }
+
+    @Override
+    public void draw(GraphicsContext graphicsContext) {
+        double halfSize = size * 0.5;
+        graphicsContext.setFill(this.getColor());
+        graphicsContext.fillRect(getX() - halfSize, getY() - halfSize, size, size);
+    }
+}
