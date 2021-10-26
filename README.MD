@@ -3,6 +3,12 @@ Compile the project:
 ```
 mvn compile
 ```
+If starting with fresh clone of the project we need to build and install.
+
+```
+mvn install
+```
+
 Build plugin for pom.xml
 
             <plugin>
