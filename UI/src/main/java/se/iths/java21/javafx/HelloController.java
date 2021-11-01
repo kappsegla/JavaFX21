@@ -2,6 +2,7 @@ package se.iths.java21.javafx;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ListChangeListener;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.*;
@@ -20,7 +21,7 @@ public class HelloController {
     @FXML
     private Label welcomeText;
     @FXML
-    private CheckBox checkBox1;
+    public CheckBox checkBox1;
     @FXML
     private ListView<String> listView1;
     @FXML
@@ -42,6 +43,9 @@ public class HelloController {
         checkBox1.selectedProperty().bindBidirectional(model.inColorProperty());
         colorPicker.valueProperty().bindBidirectional(model.colorProperty());
 
+        model.shapes.addListener((ListChangeListener<Shape>) change -> {
+            draw();
+        });
 
         model.observableList.add("Ett");
         model.observableList.add("Två");
@@ -61,9 +65,7 @@ public class HelloController {
 
     @FXML
     protected void onHelloButtonClick() {
-        model.setColor(Color.BLACK);
-
-        model.setText("Button pressed");
+        model.connect();
     }
 
     private void draw() {
@@ -96,11 +98,12 @@ public class HelloController {
     }
 
     public void canvasClicked(MouseEvent event) {
-        if( event.getButton().name().equals("PRIMARY"))
-            model.shapes.add(Shapes.circleOf(event.getX(), event.getY(), 10.0, model.getColor()));
+        if (event.getButton().name().equals("PRIMARY")) {
+            Shape shape = Shapes.circleOf(event.getX(), event.getY(), 10.0, model.getColor());
+            model.shapes.add(shape);
             //model.shapes.add(Shapes.rectangleOf(event.getX(), event.getY(), 10.0, model.getColor()));
-        else if( event.getButton().name().equals("SECONDARY"))
-        {
+            model.sendToServer(shape);
+        } else if (event.getButton().name().equals("SECONDARY")) {
             model.shapes.stream()
                     .filter(shape -> shape.isInside(event.getX(), event.getY()))
                     .findFirst().ifPresent(shape -> shape.setColor(Color.RED));
